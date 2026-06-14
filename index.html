@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Mercer — Full-Stack Developer & Digital Craftsman</title>
+  <meta name="description" content="Full-stack developer building fast, conversion-ready web products. React, Node, TypeScript. Available for select projects. View portfolio & book a call.">
+  <meta name="keywords" content="full stack developer, web developer portfolio, React developer, Node.js developer, TypeScript, freelance developer">
+  <meta name="author" content="Alex Mercer">
+  <link rel="canonical" href="https://alexmercer.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alex Mercer — Full-Stack Developer & Digital Craftsman">
+  <meta property="og:description" content="Full-stack developer building fast, conversion-ready web products. React, Node, TypeScript. Available for select projects.">
+  <meta property="og:url" content="https://alexmercer.dev/">
+  <meta property="og:image" content="https://alexmercer.dev/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Alex Mercer Dev">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alex Mercer — Full-Stack Developer">
+  <meta name="twitter:description" content="Building fast, conversion-ready web products. React, Node, TypeScript.">
+  <meta name="twitter:image" content="https://alexmercer.dev/og-image.webp">
+  <meta name="twitter:site" content="@alexmercerdev">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alex Mercer",
+    "jobTitle": "Full-Stack Developer",
+    "url": "https://alexmercer.dev",
+    "sameAs": [
+      "https://github.com/alexmercer",
+      "https://linkedin.com/in/alexmercer"
+    ],
+    "knowsAbout": ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL", "Web Performance"],
+    "description": "Full-stack developer specializing in fast, conversion-optimized web products."
+  }
+  </script>
+
+  <!-- Fonts: Preconnect first -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            acid: '#DFFF00',
+            lime: '#CCFF00',
+            volt: '#AAFF00',
+            void: '#000000',
+            carbon: '#050505',
+            graphite: '#0D0D0D',
+            smoke: '#1A1A1A',
+            cyan: '#00FFFF',
+            plasma: '#BF5AF2',
+          },
+          fontFamily: {
+            hero: ['Syncopate', 'sans-serif'],
+            body: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<link rel="stylesheet" href="assets/css/style.css">k
+</head>
+
+<body>
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Noise overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Three.js rotating wireframe background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════
+       NAV
+  ══════════════════════════════════ -->
+  <nav class="nav-pill glass" role="navigation" aria-label="Main navigation">
+    <a href="/" class="text-mono" style="font-size:.8rem;font-weight:700;color:var(--clr-acid);text-decoration:none;font-family:var(--font-hero);letter-spacing:.05em;" aria-label="Alex Mercer home">AM/</a>
+
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+    <a href="#contact" class="btn-acid" style="padding:.65rem 1.4rem;font-size:.65rem;">Hire Me</a>
+
+    <button class="nav-mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+        <rect width="20" height="2" rx="1" fill="currentColor"/>
+        <rect y="6" width="14" height="2" rx="1" fill="currentColor"/>
+        <rect y="12" width="20" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       MAIN
+  ══════════════════════════════════ -->
+  <main id="main">
+
+    <!-- ── HERO ── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="orb orb-3" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <!-- FOMO badge -->
+        <div style="margin-bottom:1.5rem;">
+          <span class="fomo-badge" role="status" aria-label="Currently accepting new projects">
+            <span class="fomo-dot" aria-hidden="true"></span>
+            Available for Projects
+          </span>
+        </div>
+
+        <p class="hero-eyebrow">Full-Stack Developer</p>
+
+        <h1 class="hero-headline" id="hero-heading">
+          I Build Things
+          <span class="headline-accent" id="scramble-target">That Ship.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Products don't fail from bad ideas. They fail from slow builds, leaky funnels, and code that can't scale. I fix all three — from database to deployment.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#work" class="btn-acid btn-magnetic">
+            See My Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost">Start a Project</a>
+        </div>
+
+        <p class="hero-trust">React · Node.js · TypeScript · PostgreSQL · AWS</p>
+      </div>
+    </section>
+
+    <!-- ── TICKER ── -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>React</span><span>★</span><span>Node.js</span><span>★</span>
+        <span>TypeScript</span><span>★</span><span>Next.js</span><span>★</span>
+        <span>PostgreSQL</span><span>★</span><span>AWS</span><span>★</span>
+        <span>Docker</span><span>★</span><span>GraphQL</span><span>★</span>
+        <span>Redis</span><span>★</span><span>Prisma</span><span>★</span>
+        <!-- Duplicate for seamless loop -->
+        <span>React</span><span>★</span><span>Node.js</span><span>★</span>
+        <span>TypeScript</span><span>★</span><span>Next.js</span><span>★</span>
+        <span>PostgreSQL</span><span>★</span><span>AWS</span><span>★</span>
+        <span>Docker</span><span>★</span><span>GraphQL</span><span>★</span>
+        <span>Redis</span><span>★</span><span>Prisma</span><span>★</span>
+      </div>
+    </div>
+
+    <!-- ── STATS ── -->
+    <div style="max-width:1300px;margin:0 auto;padding:0 var(--space-md);">
+      <div class="stats-row reveal" role="list" aria-label="Key statistics">
+        <div class="stat-cell" role="listitem">
+          <span class="stat-num" data-target="47" aria-label="47">0</span>
+          <p class="stat-lbl">Projects Shipped</p>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <span class="stat-num" data-target="6" aria-label="6">0</span>
+          <p class="stat-lbl">Years Building</p>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <span class="stat-num" data-target="99" aria-label="99">0</span>
+          <p class="stat-lbl">Lighthouse Score (avg)</p>
+        </div>
+        <div class="stat-cell" role="listitem">
+          <span class="stat-num" data-target="31" aria-label="31">0</span>
+          <p class="stat-lbl">Happy Clients</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WORK / PROJECTS ── -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="reveal">
+        <p class="section-label">// Selected Work</p>
+        <h2 class="section-title" id="work-heading">Projects That<br>Actually Moved Needles.</h2>
+      </div>
+
+      <div class="bento reveal" style="margin-top:var(--space-md);" aria-label="Portfolio projects">
+
+        <!-- Hero card -->
+        <a href="#" class="project-card bento-hero-cell card-3d" style="min-height:440px;" aria-label="FinTrack — Real-time financial dashboard">
+          <div class="project-card-bg" style="--bg:radial-gradient(circle at 30% 60%, #DFFF00, transparent 65%);" aria-hidden="true"></div>
+          <div class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="project-tag">SaaS · Full-Stack</span>
+          <p class="project-name">FinTrack</p>
+          <p class="project-desc">Real-time financial dashboard processing 2M+ transactions/day. 40% reduction in load time after infrastructure refactor.</p>
+          <div class="tech-row" style="margin-top:1rem;">
+            <span class="tech-chip">Next.js</span>
+            <span class="tech-chip">PostgreSQL</span>
+            <span class="tech-chip">Redis</span>
+            <span class="tech-chip">Stripe</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#" class="project-card bento-wide" aria-label="VaultCMS — headless CMS">
+          <div class="project-card-bg" style="--bg:radial-gradient(circle at 70% 30%, #BF5AF2, transparent 70%);" aria-hidden="true"></div>
+          <div class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="project-tag">Open Source · Backend</span>
+          <p class="project-name">VaultCMS</p>
+          <p class="project-desc">Headless CMS built for developers. 1.2k GitHub stars in 3 months.</p>
+          <div class="tech-row">
+            <span class="tech-chip">Node.js</span>
+            <span class="tech-chip">GraphQL</span>
+            <span class="tech-chip">MongoDB</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#" class="project-card" aria-label="PulseAPI — high-performance REST API">
+          <div class="project-card-bg" style="--bg:radial-gradient(circle at 50% 50%, #00FFFF, transparent 70%);" aria-hidden="true"></div>
+          <div class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="project-tag">API · DevTools</span>
+          <p class="project-name">PulseAPI</p>
+          <p class="project-desc">High-performance REST API gateway with built-in rate limiting and analytics.</p>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#" class="project-card" aria-label="ShopKit — e-commerce starter kit">
+          <div class="project-card-bg" style="--bg:radial-gradient(circle at 20% 80%, #FF6B35, transparent 70%);" aria-hidden="true"></div>
+          <div class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="project-tag">E-Commerce</span>
+          <p class="project-name">ShopKit</p>
+          <p class="project-desc">$0 → $180k GMV in 90 days. Conversion-optimized store built on Next.js + Shopify.</p>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="#" class="project-card bento-wide" aria-label="DevCollab — engineering team productivity tool">
+          <div class="project-card-bg" style="--bg:radial-gradient(circle at 50% 50%, #DFFF00, transparent 80%);" aria-hidden="true"></div>
+          <div class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="project-tag">Productivity · B2B SaaS</span>
+          <p class="project-name">DevCollab</p>
+          <p class="project-desc">Real-time collaboration tool for engineering teams. Reduced meeting overhead by 60% for early customers. 800+ active users in beta.</p>
+          <div class="tech-row">
+            <span class="tech-chip">WebSockets</span>
+            <span class="tech-chip">React</span>
+            <span class="tech-chip">Go</span>
+            <span class="tech-chip">AWS</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="reveal">
+        <p class="section-label">// What I Bring</p>
+        <h2 class="section-title" id="skills-heading">The Full Stack.<br>No Handoffs. No Gaps.</h2>
+      </div>
+
+      <div class="skill-grid stagger reveal" role="list">
+
+        <div class="skill-card" role="listitem">
+          <span class="skill-icon" aria-hidden="true">&lt;/&gt;</span>
+          <p class="skill-title">Frontend Engineering</p>
+          <p class="skill-desc">Pixel-perfect UIs that perform under pressure. I care about Core Web Vitals as much as visual fidelity — because a beautiful site no one stays on is a waste of everyone's money.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Tailwind</span>
+            <span class="skill-tag">Framer Motion</span>
+          </div>
+        </div>
+
+        <div class="skill-card" role="listitem">
+          <span class="skill-icon" aria-hidden="true">⚙</span>
+          <p class="skill-title">Backend Systems</p>
+          <p class="skill-desc">APIs that handle the real world — concurrency, edge cases, and traffic spikes. Architected for the day you hit 10x your current load and still need it to work flawlessly.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">GraphQL</span>
+            <span class="skill-tag">REST</span>
+            <span class="skill-tag">WebSockets</span>
+          </div>
+        </div>
+
+        <div class="skill-card" role="listitem">
+          <span class="skill-icon" aria-hidden="true">◈</span>
+          <p class="skill-title">Data & Infrastructure</p>
+          <p class="skill-desc">The foundation everything else runs on. Schema design that grows with your product, queries that don't buckle under load, and infra that doesn't wake you up at 3am.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Prisma</span>
+            <span class="skill-tag">AWS</span>
+          </div>
+        </div>
+
+        <div class="skill-card" role="listitem">
+          <span class="skill-icon" aria-hidden="true">▸</span>
+          <p class="skill-title">DevOps & Deployment</p>
+          <p class="skill-desc">From local dev to production in a CI/CD pipeline that actually catches bugs before users do. Zero-downtime deploys. Rollback in seconds, not hours.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">AWS ECS</span>
+            <span class="skill-tag">Terraform</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Code block easter egg -->
+      <div class="reveal" style="margin-top:var(--space-md);">
+        <div class="code-block" aria-label="Sample TypeScript code snippet">
+          <span class="code-cmt">// My development philosophy in code</span><br>
+          <span class="code-kw">const</span> <span class="code-fn">buildProduct</span> = (<span class="code-fn">idea</span>: <span class="code-str">Idea</span>): <span class="code-str">ShippedProduct</span> => {<br>
+          &nbsp;&nbsp;<span class="code-kw">const</span> foundation = <span class="code-fn">setUpRight</span>(idea);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-cmt">// not fast</span><br>
+          &nbsp;&nbsp;<span class="code-kw">const</span> mvp = <span class="code-fn">shipFast</span>(foundation);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-cmt">// but soon</span><br>
+          &nbsp;&nbsp;<span class="code-kw">const</span> feedback = <span class="code-kw">await</span> <span class="code-fn">getFromRealUsers</span>(mvp);&nbsp;<span class="code-cmt">// always</span><br>
+          &nbsp;&nbsp;<span class="code-kw">return</span> <span class="code-fn">iterate</span>(mvp, feedback, <span class="code-str">'relentlessly'</span>);<br>
+          };<br>
+          <br>
+          <span class="code-cmt">// No committee. No agency fog. Just working software.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROCESS ── -->
+    <section style="background:var(--clr-graphite);border-top:1px solid var(--clr-smoke);border-bottom:1px solid var(--clr-smoke);" id="process" aria-labelledby="process-heading">
+      <div class="section">
+        <div class="reveal">
+          <p class="section-label">// How We Work</p>
+          <h2 class="section-title" id="process-heading">Simple Process.<br>Serious Results.</h2>
+        </div>
+
+        <div class="process-list reveal">
+          <div class="process-step">
+            <span class="process-num" aria-hidden="true">01</span>
+            <div>
+              <p class="process-title">Discovery Call (30 min)</p>
+              <p class="process-body">We map your problem, your users, and what "done" looks like. I ask the uncomfortable questions early so they don't become expensive surprises at week six. No NDAs needed to talk.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <span class="process-num" aria-hidden="true">02</span>
+            <div>
+              <p class="process-title">Proposal & Scope</p>
+              <p class="process-body">You get a clear document: what gets built, when it's done, and what it costs. Fixed-price for defined scopes. Weekly retainer for ongoing work. No retainer-to-disappear billing.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <span class="process-num" aria-hidden="true">03</span>
+            <div>
+              <p class="process-title">Build in Public</p>
+              <p class="process-body">Weekly async video updates. Staging environment from day one so you can see real progress, not screenshots. You're never waiting to find out what I've been doing.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <span class="process-num" aria-hidden="true">04</span>
+            <div>
+              <p class="process-title">Ship & Hand Off</p>
+              <p class="process-body">Full documentation, clean git history, and a recorded walkthrough. You own the code entirely. I stay on for 30 days post-launch to catch any edge cases your real users reveal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);align-items:start;" class="reveal">
+        <div>
+          <p class="section-label">// About</p>
+          <h2 class="section-title" id="about-heading">A Dev Who's<br>Also Read a P&L.</h2>
+          <p style="color:var(--clr-text-secondary);margin-top:1.5rem;font-size:var(--fs-lead);line-height:1.75;">
+            Six years ago I was the guy who built "technically impressive" features nobody used. That changed after watching a startup I'd built most of the tech for collapse — not because the code was bad, but because we'd optimized for the wrong metrics entirely.
+          </p>
+          <p style="color:var(--clr-text-secondary);margin-top:1rem;line-height:1.75;">
+            Now I ask "why" before "how." Every architecture decision maps back to a business outcome. Speed of delivery matters, but not more than building the right thing. I'm not an order-taker — I'm the developer who tells you when your idea has a faster path to the same goal.
+          </p>
+          <p style="color:var(--clr-text-secondary);margin-top:1rem;line-height:1.75;">
+            Based remotely. Work with clients in Europe, North America, and Southeast Asia. Native English. Available for full project ownership or senior-level augmentation on existing teams.
+          </p>
+          <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://github.com/alexmercer" class="btn-ghost" style="padding:.7rem 1.5rem;font-size:.65rem;" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile (opens in new tab)">GitHub ↗</a>
+            <a href="https://linkedin.com/in/alexmercer" class="btn-ghost" style="padding:.7rem 1.5rem;font-size:.65rem;" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div style="position:relative;">
+          <!-- Stylized "avatar" / decorative panel -->
+          <div class="glass glass-acid" style="padding:2.5rem;border-radius:16px;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(223,255,0,.07), transparent 60%);pointer-events:none;" aria-hidden="true"></div>
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;">
+              <div style="width:52px;height:52px;border-radius:50%;background:var(--clr-acid);display:flex;align-items:center;justify-content:center;font-family:var(--font-hero);font-weight:700;color:#000;font-size:.9rem;flex-shrink:0;" aria-hidden="true">AM</div>
+              <div>
+                <p style="font-family:var(--font-hero);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Alex Mercer</p>
+                <p style="font-size:var(--fs-caption);color:var(--clr-text-secondary);margin-top:.15rem;">Full-Stack Developer</p>
+              </div>
+              <div style="margin-left:auto;">
+                <span class="avail-badge">
+                  <span class="avail-dot" aria-hidden="true"></span>
+                  Open to Work
+                </span>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+              <div style="background:rgba(255,255,255,.03);border:1px solid var(--clr-smoke);border-radius:10px;padding:1.25rem;">
+                <p style="font-family:var(--font-hero);font-size:1.6rem;font-weight:700;color:var(--clr-acid);line-height:1;">6</p>
+                <p style="font-size:var(--fs-caption);color:var(--clr-text-secondary);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em;">Years Exp.</p>
+              </div>
+              <div style="background:rgba(255,255,255,.03);border:1px solid var(--clr-smoke);border-radius:10px;padding:1.25rem;">
+                <p style="font-family:var(--font-hero);font-size:1.6rem;font-weight:700;color:var(--clr-acid);line-height:1;">47</p>
+                <p style="font-size:var(--fs-caption);color:var(--clr-text-secondary);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em;">Projects Shipped</p>
+              </div>
+              <div style="background:rgba(255,255,255,.03);border:1px solid var(--clr-smoke);border-radius:10px;padding:1.25rem;">
+                <p style="font-family:var(--font-hero);font-size:1.6rem;font-weight:700;color:var(--clr-acid);line-height:1;">3</p>
+                <p style="font-size:var(--fs-caption);color:var(--clr-text-secondary);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em;">Open-Source Repos</p>
+              </div>
+              <div style="background:rgba(255,255,255,.03);border:1px solid var(--clr-smoke);border-radius:10px;padding:1.25rem;">
+                <p style="font-family:var(--font-hero);font-size:1.6rem;font-weight:700;color:var(--clr-acid);line-height:1;">100%</p>
+                <p style="font-size:var(--fs-caption);color:var(--clr-text-secondary);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em;">On-time Delivery</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ── -->
+    <section style="background:var(--clr-graphite);border-top:1px solid var(--clr-smoke);border-bottom:1px solid var(--clr-smoke);" aria-labelledby="testimonials-heading">
+      <div class="section">
+        <div class="reveal">
+          <p class="section-label">// Client Words</p>
+          <h2 class="section-title" id="testimonials-heading">Don't Take<br>My Word for It.</h2>
+        </div>
+
+        <div class="testimonial-grid stagger reveal">
+
+          <div class="testimonial-card">
+            <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
+            <p class="testimonial-quote">"Alex didn't just build what we asked for — he told us when our approach was wrong and gave us a better one. The dashboard went from 4-second load times to under 800ms. Our support tickets dropped 30% in the first month."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">SK</div>
+              <div>
+                <p class="testimonial-name">Sarah Kim</p>
+                <p class="testimonial-role">CTO, FinTrack</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
+            <p class="testimonial-quote">"We'd worked with two other developers before Alex. Both delivered working code that we couldn't maintain. Alex handed over a codebase so clean our in-house team was actually excited to extend it."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">MR</div>
+              <div>
+                <p class="testimonial-name">Marcus Reid</p>
+                <p class="testimonial-role">Founder, ShopKit</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-stars" aria-label="5 stars">★★★★★</p>
+            <p class="testimonial-quote">"Six-week estimate, delivered in five. Every weekly update was a real update — not just 'working on it.' The API handles 50k requests/day without breaking a sweat. We've already referred him to two friends."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">JL</div>
+              <div>
+                <p class="testimonial-name">Jonas Larsen</p>
+                <p class="testimonial-role">CEO, PulseAPI</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT / CTA ── -->
+    <section class="cta-section" id="contact" aria-labelledby="contact-heading">
+      <div class="cta-grid-bg" aria-hidden="true"></div>
+
+      <p class="section-label" style="position:relative;z-index:1;">// Let's Build</p>
+      <h2 id="contact-heading">Your Next Project<br>Starts With a Call.</h2>
+      <p>Tell me what you're building. If I can help, I'll tell you exactly how. If I can't, I'll tell you who can. No pitch. No deck. Just a direct conversation.</p>
+
+      <div class="cta-buttons">
+        <a href="mailto:hello@alexmercer.dev" class="btn-acid btn-magnetic">
+          Email Me Directly
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://cal.com/alexmercer" class="btn-ghost" target="_blank" rel="noopener noreferrer">Book a 30-min Call ↗</a>
+      </div>
+
+      <p class="cta-guarantee">Free consultation · No commitment · Response within 24 hours</p>
+
+      <!-- Contact form -->
+      <div class="contact-form" role="form" aria-label="Project inquiry form">
+        <div class="form-row">
+          <input class="form-input" type="text" name="name" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
+          <input class="form-input" type="email" name="email" placeholder="e.g. you@company.com" autocomplete="email" aria-label="Your email address" required>
+        </div>
+        <input class="form-input" type="text" name="subject" placeholder="What are you building?" aria-label="Project description" required>
+        <textarea class="form-textarea" name="message" placeholder="Budget range, timeline, anything relevant — the more context the better." aria-label="Additional context or message"></textarea>
+        <button type="submit" class="form-submit" onclick="handleFormSubmit(event)">Send Message — Let's Talk</button>
+        <p id="form-status" style="font-size:var(--fs-caption);color:var(--clr-text-muted);margin-top:.5rem;" aria-live="polite" role="status"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="footer-logo" aria-label="Alex Mercer home">ALEX MERCER</a>
+        <p class="footer-tagline">Full-Stack Developer · Remote · Available Worldwide</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="mailto:hello@alexmercer.dev">Email</a>
+        <a href="https://github.com/alexmercer" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a>
+        <a href="https://linkedin.com/in/alexmercer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Alex Mercer. All rights reserved.</p>
+      <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--clr-text-muted);">Built with intention. No frameworks were harmed.</p>
+    </div>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+
+
+
+</body>
+</html>
